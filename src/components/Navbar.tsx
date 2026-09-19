@@ -15,7 +15,7 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navItems: NavTab[] = ['Home', 'Services', 'Works', 'About', 'Contact'];
 
   return (
-    <header className="w-full pt-6 pb-4 px-6 md:px-12 lg:px-16 flex items-center justify-between relative z-30">
+    <header className="sticky top-0 z-40 w-full py-4 px-6 md:px-12 lg:px-16 flex items-center justify-between backdrop-blur-md bg-[#050506]/75 border-b border-white/[0.04] transition-colors">
       {/* Brand Logo */}
       <div 
         className="flex items-center gap-2.5 cursor-pointer group select-none"
