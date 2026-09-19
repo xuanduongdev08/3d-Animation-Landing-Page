@@ -1,0 +1,7 @@
+{
+  "name": "AgentAI - AI Sprint Team On Demand",
+  "description": "Hero section clone of AgentAI - an on-demand AI sprint agency featuring metrics, partner highlights, and modern dark aesthetics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
