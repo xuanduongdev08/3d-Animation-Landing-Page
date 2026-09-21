@@ -13,7 +13,6 @@ import {
   ArrowUp
 } from 'lucide-react';
 import { NavTab } from '../types';
-import contactImg from '../assets/lets-build-something-iconic.png';
 
 interface ContactSectionProps {
   onNavClick?: (tab: NavTab) => void;
@@ -54,24 +53,24 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
   return (
     <section 
       id="contact" 
-      className="w-full bg-black pt-24 sm:pt-32 pb-12 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative"
+      className="w-full bg-black pt-24 sm:pt-32 pb-12 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative overflow-hidden"
     >
-      <div className="w-full max-w-[1550px] mx-auto">
-        {/* Section Visual Showcase Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="w-full mb-12 sm:mb-16 rounded-3xl overflow-hidden border border-white/10 bg-[#0e0e12] shadow-[0_12px_45px_rgba(0,0,0,0.8)] group"
-        >
-          <img 
-            src={contactImg} 
-            alt="Let's build something iconic." 
-            className="w-full h-auto object-cover rounded-3xl group-hover:scale-[1.01] transition-transform duration-500"
-          />
-        </motion.div>
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-75"
+        src="https://res.cloudinary.com/sgu1fi3k/video/upload/v1789974702/Let_s_build_something_iconic.mp4"
+      />
 
+      {/* Dark Gradient / Blur Overlay for Contrast */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[1] bg-black/65 backdrop-blur-[1px]"
+      />
+
+      <div className="w-full max-w-[1550px] mx-auto relative z-10">
         {/* Contact Header & Form Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24">
           
@@ -262,97 +261,112 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
           </motion.div>
         </div>
 
-        {/* Footer Divider */}
-        <div className="pt-12 border-t border-white/[0.08]">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-8">
-            
-            {/* Logo */}
-            <div 
-              className="flex items-center gap-2.5 cursor-pointer select-none group"
-              onClick={onScrollToTop}
-            >
-              <div className="relative flex items-center justify-center w-7 h-6">
-                <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="8.5" cy="9" r="7.5" fill="#de2c1f" />
-                  <circle cx="17.5" cy="9" r="7.5" fill="#ff4e3e" />
-                </svg>
+        {/* Footer Container with Background Video */}
+        <footer className="relative w-full mt-16 pt-12 pb-8 px-6 sm:px-10 rounded-3xl overflow-hidden border border-white/10 bg-black/80 shadow-[0_12px_45px_rgba(0,0,0,0.8)]">
+          {/* Background Video */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-75"
+            src="https://res.cloudinary.com/sgu1fi3k/video/upload/v1789975644/footer-animation.mp4"
+          />
+
+          {/* Dark Gradient / Blur Overlay for Contrast */}
+          <div className="absolute inset-0 pointer-events-none z-[1] bg-black/65 backdrop-blur-[1px]" />
+
+          <div className="relative z-10">
+            <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+              
+              {/* Logo */}
+              <div 
+                className="flex items-center gap-2.5 cursor-pointer select-none group"
+                onClick={onScrollToTop}
+              >
+                <div className="relative flex items-center justify-center w-7 h-6">
+                  <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="8.5" cy="9" r="7.5" fill="#de2c1f" />
+                    <circle cx="17.5" cy="9" r="7.5" fill="#ff4e3e" />
+                  </svg>
+                </div>
+                <span className="text-xl font-bold tracking-tight text-white group-hover:text-white/95 transition-colors">
+                  AgentAI
+                </span>
               </div>
-              <span className="text-xl font-bold tracking-tight text-white group-hover:text-white/95 transition-colors">
-                AgentAI
-              </span>
-            </div>
 
-            {/* Nav Links */}
-            <nav className="flex items-center gap-6 sm:gap-8 flex-wrap justify-center">
-              {navLinks.map((item) => (
-                <button
-                  key={item.tab}
-                  id={`footer-nav-${item.tab.toLowerCase()}`}
-                  onClick={() => onNavClick?.(item.tab)}
-                  className="text-xs sm:text-sm text-zinc-400 hover:text-white transition-colors cursor-pointer"
+              {/* Nav Links */}
+              <nav className="flex items-center gap-6 sm:gap-8 flex-wrap justify-center">
+                {navLinks.map((item) => (
+                  <button
+                    key={item.tab}
+                    id={`footer-nav-${item.tab.toLowerCase()}`}
+                    onClick={() => onNavClick?.(item.tab)}
+                    className="text-xs sm:text-sm text-zinc-400 hover:text-white transition-colors cursor-pointer"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </nav>
+
+              {/* Social Icons */}
+              <div className="flex items-center gap-3">
+                <a
+                  href="https://twitter.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  id="social-twitter"
+                  className="w-9 h-9 rounded-full bg-[#121217]/90 border border-white/10 hover:border-white/25 hover:text-white text-zinc-400 flex items-center justify-center transition-all backdrop-blur-md"
+                  aria-label="Twitter"
                 >
-                  {item.label}
-                </button>
-              ))}
-            </nav>
+                  <Twitter className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  id="social-github"
+                  className="w-9 h-9 rounded-full bg-[#121217]/90 border border-white/10 hover:border-white/25 hover:text-white text-zinc-400 flex items-center justify-center transition-all backdrop-blur-md"
+                  aria-label="GitHub"
+                >
+                  <Github className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://linkedin.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  id="social-linkedin"
+                  className="w-9 h-9 rounded-full bg-[#121217]/90 border border-white/10 hover:border-white/25 hover:text-white text-zinc-400 flex items-center justify-center transition-all backdrop-blur-md"
+                  aria-label="LinkedIn"
+                >
+                  <Linkedin className="w-4 h-4" />
+                </a>
+                <a
+                  href="https://dribbble.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  id="social-dribbble"
+                  className="w-9 h-9 rounded-full bg-[#121217]/90 border border-white/10 hover:border-white/25 hover:text-white text-zinc-400 flex items-center justify-center transition-all backdrop-blur-md"
+                  aria-label="Dribbble"
+                >
+                  <Globe className="w-4 h-4" />
+                </a>
+              </div>
+            </div>
 
-            {/* Social Icons */}
-            <div className="flex items-center gap-3">
-              <a
-                href="https://twitter.com"
-                target="_blank"
-                rel="noreferrer"
-                id="social-twitter"
-                className="w-9 h-9 rounded-full bg-[#121217] border border-white/10 hover:border-white/25 hover:text-white text-zinc-400 flex items-center justify-center transition-all"
-                aria-label="Twitter"
+            {/* Bottom Copyright & Back to Top */}
+            <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 pt-6 border-t border-white/[0.08] text-xs text-zinc-400">
+              <p>© {new Date().getFullYear()} AgentAI Studio Inc. All rights reserved.</p>
+              <button
+                onClick={onScrollToTop}
+                className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
               >
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a
-                href="https://github.com"
-                target="_blank"
-                rel="noreferrer"
-                id="social-github"
-                className="w-9 h-9 rounded-full bg-[#121217] border border-white/10 hover:border-white/25 hover:text-white text-zinc-400 flex items-center justify-center transition-all"
-                aria-label="GitHub"
-              >
-                <Github className="w-4 h-4" />
-              </a>
-              <a
-                href="https://linkedin.com"
-                target="_blank"
-                rel="noreferrer"
-                id="social-linkedin"
-                className="w-9 h-9 rounded-full bg-[#121217] border border-white/10 hover:border-white/25 hover:text-white text-zinc-400 flex items-center justify-center transition-all"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="w-4 h-4" />
-              </a>
-              <a
-                href="https://dribbble.com"
-                target="_blank"
-                rel="noreferrer"
-                id="social-dribbble"
-                className="w-9 h-9 rounded-full bg-[#121217] border border-white/10 hover:border-white/25 hover:text-white text-zinc-400 flex items-center justify-center transition-all"
-                aria-label="Dribbble"
-              >
-                <Globe className="w-4 h-4" />
-              </a>
+                <span>Back to Top</span>
+                <ArrowUp className="w-3.5 h-3.5 text-[#ff4e3e]" />
+              </button>
             </div>
           </div>
-
-          {/* Bottom Copyright & Back to Top */}
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mt-8 pt-6 border-t border-white/[0.04] text-xs text-zinc-400">
-            <p>© {new Date().getFullYear()} AgentAI Studio Inc. All rights reserved.</p>
-            <button
-              onClick={onScrollToTop}
-              className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer"
-            >
-              <span>Back to Top</span>
-              <ArrowUp className="w-3.5 h-3.5 text-[#ff4e3e]" />
-            </button>
-          </div>
-        </div>
+        </footer>
       </div>
     </section>
   );
