@@ -2,11 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { ArrowDown } from 'lucide-react';
 import { NavTab } from './types';
 import { Navbar } from './components/Navbar';
-import { ServiceBadge } from './components/ServiceBadge';
 import { HeroTitle } from './components/HeroTitle';
-import { MetricsCards } from './components/MetricsCards';
-import { SocialWidget } from './components/SocialWidget';
-import { RightStatsCards } from './components/RightStatsCards';
 import { BookCallModal } from './components/BookCallModal';
 import { MenuDrawer } from './components/MenuDrawer';
 import { PricingModal } from './components/PricingModal';
@@ -113,46 +109,14 @@ export default function App() {
         />
 
         {/* Main Hero Container */}
-        <main className="w-full max-w-[1550px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16 pt-2 sm:pt-4 pb-12 flex-1 flex flex-col justify-center relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-12 lg:gap-x-8 xl:gap-x-12 items-start">
-            
-            {/* Left Hero Section (Span 7 or 8 columns on large screens) */}
-            <div className="lg:col-span-7 xl:col-span-8 flex flex-col justify-between h-full">
-              {/* Main Headline & CTAs */}
-              <HeroTitle
-                onGetStarted={scrollToPricing}
-                onExploreServices={scrollToServices}
-                onViewPricing={scrollToPricing}
-              />
-
-              {/* Bottom Section: Metrics + Social Presence aligned side-by-side */}
-              <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 mt-12 pt-2">
-                <div className="flex-1 max-w-xl">
-                  <MetricsCards />
-                </div>
-
-                {/* Social Widget positioned right beside bottom metrics */}
-                <div className="hidden sm:block pl-2 pb-1">
-                  <SocialWidget />
-                </div>
-              </div>
-            </div>
-
-            {/* Right Column (Span 5 or 4 columns on large screens) */}
-            <div className="lg:col-span-5 xl:col-span-4 flex flex-col items-end w-full lg:max-w-[380px] ml-auto">
-              {/* Top Right "Also do" Tags */}
-              <div className="mb-5 self-end">
-                <ServiceBadge />
-              </div>
-
-              {/* Stacked Cards: 230+ and 400+ */}
-              <RightStatsCards onBookCall={() => setIsBookCallOpen(true)} />
-
-              {/* Mobile Social Widget fallback for small screens */}
-              <div className="sm:hidden mt-8 w-full flex justify-center">
-                <SocialWidget />
-              </div>
-            </div>
+        <main className="w-full max-w-[1550px] mx-auto px-6 sm:px-10 md:px-12 lg:px-16 pt-8 sm:pt-16 pb-16 flex-1 flex flex-col justify-center relative z-10">
+          <div className="max-w-3xl">
+            {/* Main Headline & CTAs */}
+            <HeroTitle
+              onGetStarted={scrollToPricing}
+              onExploreServices={scrollToServices}
+              onViewPricing={scrollToPricing}
+            />
           </div>
         </main>
 

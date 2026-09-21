@@ -27,17 +27,10 @@ export const HeroTitle: React.FC<HeroTitleProps> = ({
 
       {/* Main Massive Display Headline */}
       <div className="flex flex-col tracking-tight">
-        {/* Line 1: Your AI + From idea to launch */}
-        <div className="flex items-start gap-4 flex-wrap">
-          <h1 className="text-white font-extrabold text-5xl sm:text-7xl lg:text-[5.4rem] xl:text-[5.8rem] leading-[0.98] tracking-tight">
-            Your AI
-          </h1>
-          <div className="text-[11px] sm:text-xs text-zinc-400 font-normal leading-snug mt-2 pt-0.5">
-            From idea
-            <br />
-            to launch
-          </div>
-        </div>
+        {/* Line 1: Your AI */}
+        <h1 className="text-white font-extrabold text-5xl sm:text-7xl lg:text-[5.4rem] xl:text-[5.8rem] leading-[0.98] tracking-tight">
+          Your AI
+        </h1>
 
         {/* Line 2: Sprint Team */}
         <div className="text-5xl sm:text-7xl lg:text-[5.4rem] xl:text-[5.8rem] font-extrabold leading-[0.98] tracking-tight mt-1.5">
