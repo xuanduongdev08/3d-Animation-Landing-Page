@@ -15,10 +15,10 @@ export const Navbar: React.FC<NavbarProps> = ({
   const navItems: NavTab[] = ['Home', 'Services', 'Works', 'About', 'Contact'];
 
   return (
-    <header className="sticky top-0 z-40 w-full py-4 px-6 md:px-12 lg:px-16 flex items-center justify-between bg-transparent backdrop-blur-md border-b border-white/5 transition-colors">
+    <header className="sticky top-0 z-40 w-full py-5 px-6 md:px-12 lg:px-16 flex items-center justify-between bg-transparent border-none transition-colors">
       {/* Brand Logo */}
       <div 
-        className="flex items-center gap-2.5 cursor-pointer group select-none"
+        className="flex items-center gap-2.5 cursor-pointer select-none"
         onClick={() => setActiveTab('Home')}
       >
         <div className="relative flex items-center justify-center w-7 h-6">
@@ -28,7 +28,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             <circle cx="17.5" cy="9" r="7.5" fill="#ff4e3e" />
           </svg>
         </div>
-        <span className="text-xl font-bold tracking-tight text-black group-hover:text-white transition-colors">
+        <span className="text-xl font-bold tracking-tight text-white">
           AgentAI
         </span>
       </div>
@@ -36,7 +36,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       {/* Floating Center Navigation Capsule */}
       <nav 
         id="main-nav-pill"
-        className="hidden md:flex items-center bg-white/20 backdrop-blur-md border border-black/20 rounded-full p-1.5 shadow-sm transition-all"
+        className="hidden md:flex items-center bg-[#141418]/80 backdrop-blur-md border border-white/10 rounded-full p-1.5 shadow-[0_8px_30px_rgba(0,0,0,0.5)] transition-all"
       >
         {navItems.map((tab) => {
           const isActive = activeTab === tab;
@@ -45,10 +45,10 @@ export const Navbar: React.FC<NavbarProps> = ({
               key={tab}
               id={`nav-item-${tab.toLowerCase()}`}
               onClick={() => setActiveTab(tab)}
-              className={`relative px-5 py-1.5 rounded-full text-sm font-semibold transition-all duration-200 cursor-pointer ${
+              className={`relative px-5 py-1.5 rounded-full text-sm font-medium transition-all duration-200 cursor-pointer ${
                 isActive
                   ? 'bg-gradient-to-r from-[#e33428] via-[#eb3e31] to-[#ff5341] text-white shadow-[0_0_24px_rgba(235,53,41,0.55)] scale-100'
-                  : 'text-black hover:text-white hover:bg-black/50'
+                  : 'text-zinc-400 hover:text-white hover:bg-white/5'
               }`}
             >
               {tab}
