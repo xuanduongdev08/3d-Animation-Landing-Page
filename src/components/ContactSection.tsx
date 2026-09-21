@@ -13,6 +13,7 @@ import {
   ArrowUp
 } from 'lucide-react';
 import { NavTab } from '../types';
+import contactImg from '../assets/lets-build-something-iconic.png';
 
 interface ContactSectionProps {
   onNavClick?: (tab: NavTab) => void;
@@ -56,6 +57,21 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
       className="w-full bg-black pt-24 sm:pt-32 pb-12 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative"
     >
       <div className="w-full max-w-[1550px] mx-auto">
+        {/* Section Visual Showcase Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="w-full mb-12 sm:mb-16 rounded-3xl overflow-hidden border border-white/10 bg-[#0e0e12] shadow-[0_12px_45px_rgba(0,0,0,0.8)] group"
+        >
+          <img 
+            src={contactImg} 
+            alt="Let's build something iconic." 
+            className="w-full h-auto object-cover rounded-3xl group-hover:scale-[1.01] transition-transform duration-500"
+          />
+        </motion.div>
+
         {/* Contact Header & Form Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 mb-24">
           

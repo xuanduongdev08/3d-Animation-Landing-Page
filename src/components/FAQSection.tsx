@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
+import faqImg from '../assets/clear-answers.png';
 
 interface FAQItem {
   id: string;
@@ -90,6 +91,21 @@ export const FAQSection: React.FC = () => {
             Everything you need to know about our sprint agreements, technical deliverables, and partnership model.
           </motion.p>
         </div>
+
+        {/* Section Visual Showcase Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="w-full mb-12 sm:mb-16 rounded-3xl overflow-hidden border border-white/10 bg-[#0e0e12] shadow-[0_12px_45px_rgba(0,0,0,0.8)] group"
+        >
+          <img 
+            src={faqImg} 
+            alt="Clear answers. Zero ambiguity." 
+            className="w-full h-auto object-cover rounded-3xl group-hover:scale-[1.01] transition-transform duration-500"
+          />
+        </motion.div>
 
         {/* 5 Questions Accordion */}
         <div className="space-y-4">

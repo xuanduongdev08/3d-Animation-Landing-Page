@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Search, Code2, CheckCircle2, Rocket, Clock } from 'lucide-react';
+import processImg from '../assets/from-concept-to-live.png';
 
 interface ProcessStep {
   number: string;
@@ -89,6 +90,21 @@ export const ProcessSection: React.FC = () => {
             A 14-day cadence engineered for speed without compromising typographic precision or engineering integrity.
           </motion.p>
         </div>
+
+        {/* Section Visual Showcase Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="w-full mb-12 sm:mb-16 rounded-3xl overflow-hidden border border-white/10 bg-[#0e0e12] shadow-[0_12px_45px_rgba(0,0,0,0.8)] group"
+        >
+          <img 
+            src={processImg} 
+            alt="From concept to live. Four decisive steps." 
+            className="w-full h-auto object-cover rounded-3xl group-hover:scale-[1.01] transition-transform duration-500"
+          />
+        </motion.div>
 
         {/* Timeline Visual Container */}
         <div className="relative">

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, Award, Zap, Users, ArrowUpRight } from 'lucide-react';
+import aboutImg from '../assets/built-by-builders.png';
 
 interface AboutSectionProps {
   onBookCall?: () => void;
@@ -13,6 +14,21 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
       className="w-full bg-black py-24 sm:py-32 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative"
     >
       <div className="w-full max-w-[1550px] mx-auto">
+        {/* Section Visual Showcase Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="w-full mb-12 sm:mb-16 rounded-3xl overflow-hidden border border-white/10 bg-[#0e0e12] shadow-[0_12px_45px_rgba(0,0,0,0.8)] group"
+        >
+          <img 
+            src={aboutImg} 
+            alt="Built by builders, trusted by industry pioneers." 
+            className="w-full h-auto object-cover rounded-3xl group-hover:scale-[1.01] transition-transform duration-500"
+          />
+        </motion.div>
+
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Agency Story */}

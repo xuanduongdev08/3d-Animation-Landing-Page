@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowUpRight, Sparkles, Layers, Cpu, Globe, Compass, ShieldCheck } from 'lucide-react';
+import craftedImg from '../assets/crafted-at-speed.png';
 
 interface WorksSectionProps {
   onSelectProject?: (title: string) => void;
@@ -104,6 +105,21 @@ export const WorksSection: React.FC<WorksSectionProps> = ({ onSelectProject }) =
             Explore recent sprint cycles where our design and engineering squad delivered flagship digital experiences for industry front-runners.
           </motion.p>
         </div>
+
+        {/* Section Visual Showcase Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="w-full mb-12 sm:mb-16 rounded-3xl overflow-hidden border border-white/10 bg-[#0e0e12] shadow-[0_12px_45px_rgba(0,0,0,0.8)] group"
+        >
+          <img 
+            src={craftedImg} 
+            alt="Crafted at speed. Shipped to scale." 
+            className="w-full h-auto object-cover rounded-3xl group-hover:scale-[1.01] transition-transform duration-500"
+          />
+        </motion.div>
 
         {/* Projects Grid: 6 cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-7">
