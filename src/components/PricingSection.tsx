@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Check, Sparkles, Zap, ArrowRight } from 'lucide-react';
-import pricingImg from '../assets/predictable-pricing.png';
 
 interface PricingSectionProps {
   onSelectPlan?: (planName: string) => void;
@@ -81,9 +80,24 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
   return (
     <section 
       id="pricing" 
-      className="w-full bg-black py-24 sm:py-32 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative"
+      className="w-full bg-black py-24 sm:py-32 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative overflow-hidden"
     >
-      <div className="w-full max-w-[1550px] mx-auto">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-75"
+        src="https://res.cloudinary.com/sgu1fi3k/video/upload/v1789965113/Predictable_pricing._Compounding_results.mp4"
+      />
+
+      {/* Dark Gradient / Blur Overlay for Contrast */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[1] bg-black/65 backdrop-blur-[1px]"
+      />
+
+      <div className="w-full max-w-[1550px] mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center max-w-3xl mx-auto mb-16 sm:mb-20">
           <motion.div
@@ -91,7 +105,7 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141418] border border-white/10 text-xs font-medium text-zinc-400 mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141418]/90 border border-white/10 text-xs font-medium text-zinc-400 mb-4 backdrop-blur-md"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-[#ff4e3e]"></span>
             <span>Transparent Investment</span>
@@ -120,21 +134,6 @@ export const PricingSection: React.FC<PricingSectionProps> = ({
             No hidden retainer fees, unpredictable billing hours, or surprise invoices. Choose the sprint rhythm that matches your trajectory.
           </motion.p>
         </div>
-
-        {/* Section Visual Showcase Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="w-full mb-12 sm:mb-16 rounded-3xl overflow-hidden border border-white/10 bg-[#0e0e12] shadow-[0_12px_45px_rgba(0,0,0,0.8)] group"
-        >
-          <img 
-            src={pricingImg} 
-            alt="Predictable pricing. Compounding results." 
-            className="w-full h-auto object-cover rounded-3xl group-hover:scale-[1.01] transition-transform duration-500"
-          />
-        </motion.div>
 
         {/* 3 Pricing Cards Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch relative">
