@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Search, Code2, CheckCircle2, Rocket, Clock } from 'lucide-react';
-import processImg from '../assets/from-concept-to-live.png';
 
 interface ProcessStep {
   number: string;
@@ -56,9 +55,24 @@ export const ProcessSection: React.FC = () => {
   return (
     <section 
       id="process" 
-      className="w-full bg-black py-24 sm:py-32 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative"
+      className="w-full bg-black py-24 sm:py-32 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative overflow-hidden"
     >
-      <div className="w-full max-w-[1550px] mx-auto">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-75"
+        src="https://res.cloudinary.com/sgu1fi3k/video/upload/v1789964191/From_concept_to_live._Four_decisive_steps.mp4"
+      />
+
+      {/* Dark Gradient / Blur Overlay for Contrast */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[1] bg-black/65 backdrop-blur-[1px]"
+      />
+
+      <div className="w-full max-w-[1550px] mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16 sm:mb-20">
           <motion.div
@@ -68,7 +82,7 @@ export const ProcessSection: React.FC = () => {
             transition={{ duration: 0.5 }}
             className="max-w-2xl"
           >
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141418] border border-white/10 text-xs font-medium text-zinc-400 mb-4">
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141418]/90 border border-white/10 text-xs font-medium text-zinc-400 mb-4 backdrop-blur-md">
               <span className="w-1.5 h-1.5 rounded-full bg-[#ff4e3e]"></span>
               <span>The Sprint Operating Model</span>
             </div>
@@ -90,21 +104,6 @@ export const ProcessSection: React.FC = () => {
             A 14-day cadence engineered for speed without compromising typographic precision or engineering integrity.
           </motion.p>
         </div>
-
-        {/* Section Visual Showcase Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="w-full mb-12 sm:mb-16 rounded-3xl overflow-hidden border border-white/10 bg-[#0e0e12] shadow-[0_12px_45px_rgba(0,0,0,0.8)] group"
-        >
-          <img 
-            src={processImg} 
-            alt="From concept to live. Four decisive steps." 
-            className="w-full h-auto object-cover rounded-3xl group-hover:scale-[1.01] transition-transform duration-500"
-          />
-        </motion.div>
 
         {/* Timeline Visual Container */}
         <div className="relative">

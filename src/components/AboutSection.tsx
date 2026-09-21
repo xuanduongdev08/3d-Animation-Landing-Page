@@ -1,7 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ShieldCheck, Award, Zap, Users, ArrowUpRight } from 'lucide-react';
-import aboutImg from '../assets/built-by-builders.png';
 
 interface AboutSectionProps {
   onBookCall?: () => void;
@@ -11,24 +10,24 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onBookCall }) => {
   return (
     <section 
       id="about" 
-      className="w-full bg-black py-24 sm:py-32 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative"
+      className="w-full bg-black py-24 sm:py-32 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative overflow-hidden"
     >
-      <div className="w-full max-w-[1550px] mx-auto">
-        {/* Section Visual Showcase Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="w-full mb-12 sm:mb-16 rounded-3xl overflow-hidden border border-white/10 bg-[#0e0e12] shadow-[0_12px_45px_rgba(0,0,0,0.8)] group"
-        >
-          <img 
-            src={aboutImg} 
-            alt="Built by builders, trusted by industry pioneers." 
-            className="w-full h-auto object-cover rounded-3xl group-hover:scale-[1.01] transition-transform duration-500"
-          />
-        </motion.div>
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-75"
+        src="https://res.cloudinary.com/sgu1fi3k/video/upload/v1789964597/Built_by_builders_trusted_by_industry_pioneers.mp4"
+      />
 
+      {/* Dark Gradient / Blur Overlay for Contrast */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[1] bg-black/65 backdrop-blur-[1px]"
+      />
+
+      <div className="w-full max-w-[1550px] mx-auto relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Agency Story */}
