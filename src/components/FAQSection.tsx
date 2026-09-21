@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus, HelpCircle } from 'lucide-react';
-import faqImg from '../assets/clear-answers.png';
 
 interface FAQItem {
   id: string;
@@ -52,9 +51,24 @@ export const FAQSection: React.FC = () => {
   return (
     <section 
       id="faq" 
-      className="w-full bg-black py-24 sm:py-32 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative"
+      className="w-full bg-black py-24 sm:py-32 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative overflow-hidden"
     >
-      <div className="w-full max-w-[1000px] mx-auto">
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-75"
+        src="https://res.cloudinary.com/sgu1fi3k/video/upload/v1789973719/Clear_answers._Zero_ambiguity.mp4"
+      />
+
+      {/* Dark Gradient / Blur Overlay for Contrast */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[1] bg-black/65 backdrop-blur-[1px]"
+      />
+
+      <div className="w-full max-w-[1000px] mx-auto relative z-10">
         {/* Section Header */}
         <div className="flex flex-col items-center text-center mb-16 sm:mb-20">
           <motion.div
@@ -62,7 +76,7 @@ export const FAQSection: React.FC = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141418] border border-white/10 text-xs font-medium text-zinc-400 mb-4"
+            className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#141418]/90 border border-white/10 text-xs font-medium text-zinc-400 mb-4 backdrop-blur-md"
           >
             <HelpCircle className="w-3.5 h-3.5 text-[#ff4e3e]" />
             <span>Frequently Asked Questions</span>
@@ -91,21 +105,6 @@ export const FAQSection: React.FC = () => {
             Everything you need to know about our sprint agreements, technical deliverables, and partnership model.
           </motion.p>
         </div>
-
-        {/* Section Visual Showcase Banner */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="w-full mb-12 sm:mb-16 rounded-3xl overflow-hidden border border-white/10 bg-[#0e0e12] shadow-[0_12px_45px_rgba(0,0,0,0.8)] group"
-        >
-          <img 
-            src={faqImg} 
-            alt="Clear answers. Zero ambiguity." 
-            className="w-full h-auto object-cover rounded-3xl group-hover:scale-[1.01] transition-transform duration-500"
-          />
-        </motion.div>
 
         {/* 5 Questions Accordion */}
         <div className="space-y-4">

@@ -16,9 +16,24 @@ export const FinalCTASection: React.FC<FinalCTASectionProps> = ({
       id="final-cta" 
       className="w-full bg-black py-24 sm:py-32 px-6 sm:px-10 md:px-12 lg:px-16 border-t border-white/[0.06] relative overflow-hidden"
     >
+      {/* Background Video */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none z-0 opacity-75"
+        src="https://res.cloudinary.com/sgu1fi3k/video/upload/v1789974339/Ready_to_Sprint.mp4"
+      />
+
+      {/* Dark Gradient / Blur Overlay for Contrast */}
+      <div 
+        className="absolute inset-0 pointer-events-none z-[1] bg-black/65 backdrop-blur-[1px]"
+      />
+
       {/* Ambient Red Glow in Background */}
       <div 
-        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(227,53,41,0.18),transparent_70%)] blur-2xl" 
+        className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[700px] h-[350px] bg-[radial-gradient(ellipse_at_center,rgba(227,53,41,0.18),transparent_70%)] blur-2xl z-[2]" 
       />
 
       <div className="w-full max-w-[1200px] mx-auto relative z-10">
