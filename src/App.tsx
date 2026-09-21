@@ -16,6 +16,7 @@ import { TestimonialsSection } from './components/TestimonialsSection';
 import { FAQSection } from './components/FAQSection';
 import { FinalCTASection } from './components/FinalCTASection';
 import { ContactSection } from './components/ContactSection';
+import { FooterSection } from './components/FooterSection';
 
 export default function App() {
   const [activeTab, setActiveTab] = useState<NavTab>('Home');
@@ -160,8 +161,11 @@ export default function App() {
         onViewPricing={scrollToPricing}
       />
 
-      {/* 9. Contact (id="contact") & Footer Section */}
-      <ContactSection 
+      {/* 9. Contact (id="contact") Section */}
+      <ContactSection />
+
+      {/* 10. Standalone Footer Section */}
+      <FooterSection 
         onNavClick={handleTabSelect}
         onScrollToTop={() => {
           document.getElementById('hero')?.scrollIntoView({ behavior: 'smooth' });
