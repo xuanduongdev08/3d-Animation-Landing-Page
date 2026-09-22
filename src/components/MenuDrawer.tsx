@@ -49,7 +49,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
               <img 
                 src={logoImg} 
                 alt="AgentAI Logo" 
-                className="h-10 sm:h-12 w-auto object-contain mix-blend-screen"
+                className="h-16 sm:h-20 -my-2 w-auto object-contain mix-blend-screen"
               />
               <span className="text-[10px] bg-[#ff4e3e]/20 text-[#ff503e] border border-[#ff4e3e]/30 px-2 py-0.5 rounded-full font-medium ml-1">
                 Agency Menu

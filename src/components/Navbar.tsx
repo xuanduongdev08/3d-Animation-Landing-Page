@@ -25,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <img 
           src={logoImg} 
           alt="AgentAI Logo" 
-          className="h-12 sm:h-14 md:h-16 w-auto object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-105"
+          className="h-20 sm:h-24 md:h-28 -my-4 sm:-my-5 w-auto object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-105"
         />
       </div>
 
