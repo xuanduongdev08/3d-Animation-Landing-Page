@@ -19,13 +19,13 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="sticky top-0 z-40 w-full py-5 px-6 md:px-12 lg:px-16 flex items-center justify-between bg-transparent border-none transition-colors">
       {/* Brand Logo */}
       <div 
-        className="flex items-center gap-2.5 cursor-pointer select-none group"
+        className="flex items-center cursor-pointer select-none group"
         onClick={() => setActiveTab('Home')}
       >
         <img 
           src={logoImg} 
           alt="AgentAI Logo" 
-          className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,78,62,0.3)]"
+          className="h-12 sm:h-14 md:h-16 w-auto object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-105"
         />
       </div>
 

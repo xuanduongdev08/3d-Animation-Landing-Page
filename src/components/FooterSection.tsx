@@ -52,13 +52,13 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
           
           {/* Logo */}
           <div 
-            className="flex items-center gap-2.5 cursor-pointer select-none group"
+            className="flex items-center cursor-pointer select-none group"
             onClick={onScrollToTop}
           >
             <img 
               src={logoImg} 
               alt="AgentAI Logo" 
-              className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,78,62,0.3)]"
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-105"
             />
           </div>
 
