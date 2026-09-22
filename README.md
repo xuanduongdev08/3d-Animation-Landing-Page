@@ -1,5 +1,7 @@
 # 🚀 AgentAI - 3D Animated Landing Page
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/ddcc726e-50a4-4161-9747-eb5e0a8877a2/deploy-status)](https://app.netlify.com/projects/peaceful-bienenstitch-ac5997/deploys)
+
 A state-of-the-art, high-velocity 3D animated agency landing page built with **React 19**, **TypeScript**, **Vite**, **Tailwind CSS v4**, and **Motion**.
 
 🌐 **Live Demo:** [https://peaceful-bienenstitch-ac5997.netlify.app/](https://peaceful-bienenstitch-ac5997.netlify.app/)
