@@ -1,5 +1,5 @@
 import React from 'react';
-import logoImg from '../assets/Logo_Agent.png';
+import logoImg from '../assets/Logo_Agent-removebg.png';
 import { NavTab } from '../types';
 
 interface NavbarProps {
@@ -25,7 +25,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         <img 
           src={logoImg} 
           alt="AgentAI Logo" 
-          className="h-20 sm:h-24 md:h-28 -my-4 sm:-my-5 w-auto object-contain mix-blend-screen transition-transform duration-300 group-hover:scale-105"
+          className="h-14 sm:h-16 md:h-20 -my-3 sm:-my-4 w-auto object-contain transition-all duration-300 group-hover:scale-105 group-hover:drop-shadow-[0_0_18px_rgba(255,78,62,0.65)]"
         />
       </div>
 

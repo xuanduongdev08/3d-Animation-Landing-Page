@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { X, ArrowUpRight, Sparkles, PhoneCall, Code2, Layers, Compass } from 'lucide-react';
-import logoImg from '../assets/Logo_Agent.png';
+import logoImg from '../assets/Logo_Agent-removebg.png';
 import { NavTab } from '../types';
 
 interface MenuDrawerProps {
@@ -49,7 +49,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
               <img 
                 src={logoImg} 
                 alt="AgentAI Logo" 
-                className="h-16 sm:h-20 -my-2 w-auto object-contain mix-blend-screen"
+                className="h-12 sm:h-14 -my-2 w-auto object-contain transition-all duration-300 hover:scale-105 hover:drop-shadow-[0_0_18px_rgba(255,78,62,0.65)]"
               />
               <span className="text-[10px] bg-[#ff4e3e]/20 text-[#ff503e] border border-[#ff4e3e]/30 px-2 py-0.5 rounded-full font-medium ml-1">
                 Agency Menu
