@@ -1,4 +1,5 @@
 import React from 'react';
+import logoImg from '../assets/Logo_Agent.png';
 import { NavTab } from '../types';
 
 interface NavbarProps {
@@ -18,19 +19,14 @@ export const Navbar: React.FC<NavbarProps> = ({
     <header className="sticky top-0 z-40 w-full py-5 px-6 md:px-12 lg:px-16 flex items-center justify-between bg-transparent border-none transition-colors">
       {/* Brand Logo */}
       <div 
-        className="flex items-center gap-2.5 cursor-pointer select-none"
+        className="flex items-center gap-2.5 cursor-pointer select-none group"
         onClick={() => setActiveTab('Home')}
       >
-        <div className="relative flex items-center justify-center w-7 h-6">
-          <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Two overlapping solid red circles */}
-            <circle cx="8.5" cy="9" r="7.5" fill="#de2c1f" />
-            <circle cx="17.5" cy="9" r="7.5" fill="#ff4e3e" />
-          </svg>
-        </div>
-        <span className="text-xl font-bold tracking-tight text-white">
-          AgentAI
-        </span>
+        <img 
+          src={logoImg} 
+          alt="AgentAI Logo" 
+          className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,78,62,0.3)]"
+        />
       </div>
 
       {/* Floating Center Navigation Capsule */}

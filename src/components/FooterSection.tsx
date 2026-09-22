@@ -1,4 +1,5 @@
 import React from 'react';
+import logoImg from '../assets/Logo_Agent.png';
 import { 
   Twitter, 
   Github, 
@@ -54,15 +55,11 @@ export const FooterSection: React.FC<FooterSectionProps> = ({
             className="flex items-center gap-2.5 cursor-pointer select-none group"
             onClick={onScrollToTop}
           >
-            <div className="relative flex items-center justify-center w-7 h-6">
-              <svg width="28" height="18" viewBox="0 0 28 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <circle cx="8.5" cy="9" r="7.5" fill="#de2c1f" />
-                <circle cx="17.5" cy="9" r="7.5" fill="#ff4e3e" />
-              </svg>
-            </div>
-            <span className="text-xl font-bold tracking-tight text-white group-hover:text-white/95 transition-colors">
-              AgentAI
-            </span>
+            <img 
+              src={logoImg} 
+              alt="AgentAI Logo" 
+              className="h-9 sm:h-10 w-auto object-contain transition-transform duration-300 group-hover:scale-105 drop-shadow-[0_0_12px_rgba(255,78,62,0.3)]"
+            />
           </div>
 
           {/* Nav Links */}
