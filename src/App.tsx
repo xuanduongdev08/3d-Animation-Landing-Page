@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { AnimatePresence } from 'motion/react';
 import { ArrowDown } from 'lucide-react';
 import { NavTab } from './types';
 import { Navbar } from './components/Navbar';
@@ -173,29 +174,45 @@ export default function App() {
       />
 
       {/* Interactive Modals & Drawers */}
-      <BookCallModal
-        isOpen={isBookCallOpen}
-        onClose={() => setIsBookCallOpen(false)}
-      />
+      <AnimatePresence>
+        {isBookCallOpen && (
+          <BookCallModal
+            isOpen={isBookCallOpen}
+            onClose={() => setIsBookCallOpen(false)}
+          />
+        )}
+      </AnimatePresence>
 
-      <MenuDrawer
-        isOpen={isMenuOpen}
-        onClose={() => setIsMenuOpen(false)}
-        onSelectTab={(tab) => handleTabSelect(tab)}
-        onBookCall={() => setIsBookCallOpen(true)}
-      />
+      <AnimatePresence>
+        {isMenuOpen && (
+          <MenuDrawer
+            isOpen={isMenuOpen}
+            onClose={() => setIsMenuOpen(false)}
+            onSelectTab={(tab) => handleTabSelect(tab)}
+            onBookCall={() => setIsBookCallOpen(true)}
+          />
+        )}
+      </AnimatePresence>
 
-      <PricingModal
-        isOpen={isPricingOpen}
-        onClose={() => setIsPricingOpen(false)}
-        onBookCall={() => setIsBookCallOpen(true)}
-      />
+      <AnimatePresence>
+        {isPricingOpen && (
+          <PricingModal
+            isOpen={isPricingOpen}
+            onClose={() => setIsPricingOpen(false)}
+            onBookCall={() => setIsBookCallOpen(true)}
+          />
+        )}
+      </AnimatePresence>
 
-      <ServicesModal
-        isOpen={isServicesOpen}
-        onClose={() => setIsServicesOpen(false)}
-        onBookCall={() => setIsBookCallOpen(true)}
-      />
+      <AnimatePresence>
+        {isServicesOpen && (
+          <ServicesModal
+            isOpen={isServicesOpen}
+            onClose={() => setIsServicesOpen(false)}
+            onBookCall={() => setIsBookCallOpen(true)}
+          />
+        )}
+      </AnimatePresence>
     </div>
   );
 }

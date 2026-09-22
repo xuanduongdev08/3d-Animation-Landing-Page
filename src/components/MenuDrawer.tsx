@@ -1,26 +1,44 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { X, ArrowUpRight, Sparkles, PhoneCall, Code2, Layers, Compass } from 'lucide-react';
 import { NavTab } from '../types';
 
 interface MenuDrawerProps {
-  isOpen: boolean;
+  isOpen?: boolean;
   onClose: () => void;
   onSelectTab: (tab: NavTab) => void;
   onBookCall: () => void;
 }
 
 export const MenuDrawer: React.FC<MenuDrawerProps> = ({
-  isOpen,
   onClose,
   onSelectTab,
   onBookCall,
 }) => {
-  if (!isOpen) return null;
+  const navItems = [
+    { tab: 'Home' as NavTab, desc: 'Return to agency hero screen', icon: Compass },
+    { tab: 'Services' as NavTab, desc: 'AI discovery, prototyping & stack integration', icon: Layers },
+    { tab: 'Works' as NavTab, desc: 'Case studies & 230+ deployed AI systems', icon: Code2 },
+    { tab: 'About' as NavTab, desc: 'Our sprint engineers and methodology', icon: Sparkles },
+    { tab: 'Contact' as NavTab, desc: 'Direct access to sprint leads', icon: PhoneCall },
+  ];
 
   return (
-    <div className="fixed inset-0 z-50 flex justify-end bg-black/75 backdrop-blur-sm animate-fade-in">
-      <div 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.25 }}
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex justify-end bg-black/75 backdrop-blur-sm"
+    >
+      <motion.div 
         id="menu-drawer-panel"
+        initial={{ x: '100%' }}
+        animate={{ x: 0 }}
+        exit={{ x: '100%' }}
+        transition={{ type: 'spring', damping: 28, stiffness: 280 }}
+        onClick={(e) => e.stopPropagation()}
         className="bg-[#0f0f13] border-l border-white/10 w-full max-w-md h-full p-8 flex flex-col justify-between shadow-2xl overflow-y-auto"
       >
         <div>
@@ -40,17 +58,14 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
             </button>
           </div>
 
-          {/* Nav Navigation links */}
+          {/* Nav Navigation links with stagger effect */}
           <div className="py-8 space-y-4">
-            {[
-              { tab: 'Home' as NavTab, desc: 'Return to agency hero screen', icon: Compass },
-              { tab: 'Services' as NavTab, desc: 'AI discovery, prototyping & stack integration', icon: Layers },
-              { tab: 'Works' as NavTab, desc: 'Case studies & 230+ deployed AI systems', icon: Code2 },
-              { tab: 'About' as NavTab, desc: 'Our sprint engineers and methodology', icon: Sparkles },
-              { tab: 'Contact' as NavTab, desc: 'Direct access to sprint leads', icon: PhoneCall },
-            ].map(({ tab, desc, icon: Icon }) => (
-              <div
+            {navItems.map(({ tab, desc, icon: Icon }, idx) => (
+              <motion.div
                 key={tab}
+                initial={{ opacity: 0, x: 25 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.25, delay: 0.08 + idx * 0.05 }}
                 onClick={() => {
                   onSelectTab(tab);
                   onClose();
@@ -69,7 +84,7 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
                   </div>
                 </div>
                 <ArrowUpRight className="w-4 h-4 text-zinc-500 group-hover:text-white transition-colors" />
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -91,7 +106,8 @@ export const MenuDrawer: React.FC<MenuDrawerProps> = ({
             Book a Discovery Call
           </button>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
+

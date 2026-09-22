@@ -1,23 +1,33 @@
 import React from 'react';
+import { motion } from 'motion/react';
 import { X, Check, Zap, Rocket, Shield } from 'lucide-react';
 
 interface PricingModalProps {
-  isOpen: boolean;
+  isOpen?: boolean;
   onClose: () => void;
   onBookCall: () => void;
 }
 
 export const PricingModal: React.FC<PricingModalProps> = ({
-  isOpen,
   onClose,
   onBookCall,
 }) => {
-  if (!isOpen) return null;
-
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md animate-fade-in">
-      <div 
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      transition={{ duration: 0.2 }}
+      onClick={onClose}
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md"
+    >
+      <motion.div 
         id="pricing-modal-content"
+        initial={{ opacity: 0, scale: 0.92, y: 15 }}
+        animate={{ opacity: 1, scale: 1, y: 0 }}
+        exit={{ opacity: 0, scale: 0.92, y: 15 }}
+        transition={{ type: 'spring', damping: 26, stiffness: 300 }}
+        onClick={(e) => e.stopPropagation()}
         className="bg-[#101014] border border-white/10 rounded-3xl p-6 sm:p-8 max-w-3xl w-full relative shadow-[0_20px_50px_rgba(0,0,0,0.8)] max-h-[90vh] overflow-y-auto"
       >
         <button
@@ -140,7 +150,8 @@ export const PricingModal: React.FC<PricingModalProps> = ({
           <Shield className="w-4 h-4 text-[#ff503e]" />
           <span>100% money-back sprint guarantee if feasibility criteria aren&apos;t satisfied.</span>
         </div>
-      </div>
-    </div>
+      </motion.div>
+    </motion.div>
   );
 };
+
